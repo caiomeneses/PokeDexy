@@ -13,6 +13,7 @@ class PokemonDetailViewModel: ObservableObject {
     @Published var id: Int = 0
     @Published var height: Double = 0.0
     @Published var weight: Double = 0.0
+    @Published var front_default: String = ""
     
     var urlString = ""
     
@@ -20,6 +21,11 @@ class PokemonDetailViewModel: ObservableObject {
         var id: Int
         var height: Double
         var weight: Double
+        var sprites: Sprite
+    }
+    
+    struct Sprite: Decodable {
+        var front_default: String
     }
     
     func getData() async {
@@ -35,6 +41,7 @@ class PokemonDetailViewModel: ObservableObject {
             self.id = data.id
             self.height = data.height
             self.weight = data.weight
+            self.front_default = data.sprites.front_default
             
         } catch {
             print("Algo deu errado")
