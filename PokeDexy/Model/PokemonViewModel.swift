@@ -13,16 +13,11 @@ class PokemonViewModel: ObservableObject {
     @Published var count: Int = 0
     @Published var pokemonArray: [PokemonResult] = []
     
-    var urlString = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+    var urlString = "https://pokeapi.co/api/v2/pokemon?limit=101&offset=0"
     
-    struct PokemonReturned: Decodable {
+    private struct PokemonReturned: Decodable {
         var count: Int
         var results: [PokemonResult]
-    }
-    
-    struct PokemonResult: Hashable, Decodable {
-        var name: String
-        var url: String
     }
     
     func getData() async {

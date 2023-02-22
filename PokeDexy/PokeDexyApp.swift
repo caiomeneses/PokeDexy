@@ -11,7 +11,7 @@ import SwiftUI
 struct PokeDexyApp: App {
     var body: some Scene {
         WindowGroup {
-            PokeDexyList()
+            PokeDexyListView()
         }
     }
 }

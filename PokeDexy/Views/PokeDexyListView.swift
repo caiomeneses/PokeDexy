@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PokeDexyList: View {
+struct PokeDexyListView: View {
     
     @StateObject var pokemon = PokemonViewModel()
     @State var searchText = ""
@@ -19,7 +19,7 @@ struct PokeDexyList: View {
                  : pokemon.pokemonArray.filter {$0.name.localizedCaseInsensitiveContains(searchText)},
                  id: \.self) { pokemon in
                 NavigationLink {
-                    
+                    PokemonDetailView(pokemon: pokemon)
                 } label: {
                     Text(pokemon.name.capitalized)
                         .font(.headline)
@@ -38,6 +38,6 @@ struct PokeDexyList: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeDexyList()
+        PokeDexyListView()
     }
 }
