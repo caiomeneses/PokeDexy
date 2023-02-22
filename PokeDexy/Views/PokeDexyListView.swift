@@ -21,6 +21,9 @@ struct PokeDexyListView: View {
                 NavigationLink {
                     PokemonDetailView(pokemon: pokemon)
                 } label: {
+                    
+                    // implement a helper view
+                    
                     Text(pokemon.name.capitalized)
                         .font(.headline)
                 }
